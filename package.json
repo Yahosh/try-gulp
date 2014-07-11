@@ -1,0 +1,74 @@
+{
+  "name": "gulp-starter",
+  "version": "0.1.0",
+  "description": "Gulp starter with common tasks and scenarios",
+  "domain": "local.wordpress.com",
+  "paths": {
+    "root": "./app",
+    "theme": "./app/wp-content/themes/try-theme",
+    "scripts": "./app/wp-content/themes/try-theme/scripts",
+    "styles": "./app/wp-content/themes/try-theme/styles",
+    "images": "./app/wp-content/themes/try-theme/images",
+    "dist": "./app/wp-content/themes/try-theme/dist"
+  },
+  "browser": {
+    "jquery": "./app/wp-content/themes/try-theme/libs/jquery/dist/jquery.js",
+    "owlcarousel": "./app/wp-content/themes/try-theme/libs/owl.carousel/dist/owl.carousel.js",
+    "colorbox": "./app/wp-content/themes/try-theme/libs/colorbox/jquery.colorbox.js",
+    "bootstrap": "./app/wp-content/themes/try-theme/libs/bootstrap/dist/js/bootstrap.js",
+    "enquire": "./app/wp-content/themes/try-theme/libs/enquire/dist/enquire.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "owlcarousel": {
+      "exports": "owlCarousel",
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "colorbox": {
+      "exports": "colorbox",
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "bootstrap": {
+      "exports": "bootstrap",
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "enquire": {
+      "exports": "enquire"
+    }
+  },
+  "devDependencies": {
+    "browser-sync": "~0.8.2",
+    "browserify-shim": "~3.6.0",
+    "browserify": "~4.2.0",
+    "watchify": "~0.10.2",
+    "connect": "~2.14.3",
+    "pretty-hrtime": "~0.2.1",
+    "vinyl-source-stream": "~0.1.1",
+    "jshint-stylish": "^0.2.0",
+    "del": "^0.1.0",
+    "psi": "0.0.4",
+    "gulp": "~3.8.0",
+    "gulp-changed": "~0.3.0",
+    "gulp-imagemin": "~0.1.5",
+    "gulp-notify": "~1.2.4",
+    "gulp-open": "~0.2.8",
+    "gulp-util": "~2.2.14",
+    "gulp-livereload": "^2.1.0",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-minify-css": "^0.3.5",
+    "gulp-rename": "^1.2.0",
+    "gulp-streamify": "0.0.5",
+    "gulp-jshint": "^1.6.3"
+  }
+}
