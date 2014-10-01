@@ -7,8 +7,17 @@ gulp.task('watch', ['setWatch', 'browserify'], function() {
 	livereload.listen();
 	gulp.watch(paths.dist + '/**').on('change', livereload.changed);
 
-	// Watch .less files
+	// Watch theme .less files
 	gulp.watch(paths.styles + '/**/*.less', ['styles']);
+
+	// Watch editor.less
+	gulp.watch(paths.theme + '/admin/editor.less', ['editorStyles']);
+
+	// Watch admin styles
+	gulp.watch(paths.theme + '/admin/admin.less', ['adminStyles']);
+
+	// Watch admin scripts
+	gulp.watch(paths.theme + '/admin/admin.js', ['adminScripts']);
 
 	// Watch images
 	gulp.watch(paths.images + '/**', ['images']);

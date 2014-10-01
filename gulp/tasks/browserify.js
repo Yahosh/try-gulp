@@ -35,7 +35,7 @@ gulp.task('browserify', function() {
 	var bundleMethod = global.isWatching ? watchify : browserify;
 
 	var bundler = bundleMethod({
-		entries: [paths.scripts + '/main.js'] // Specify the entry point of your app
+		entries: [paths.scripts + '/app.js'] // Specify the entry point of your app
 		// noParse: libs  // Ignore libraries with no requires to speed up builds, but currently causes an error with jquery
 	});
 

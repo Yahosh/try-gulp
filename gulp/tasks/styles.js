@@ -8,7 +8,7 @@ var handleErrors = require('../util/handleErrors');
 var paths 		 = require('../../package.json').paths;
 
 gulp.task('styles', function() {
-	return gulp.src([paths.styles + '/main.less'], { base: paths.styles })
+	return gulp.src([paths.styles + '/app.less'], { base: paths.styles })
 		.pipe(less())
 		.on('error', handleErrors)
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
