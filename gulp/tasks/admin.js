@@ -1,11 +1,22 @@
 var gulp         = require('gulp');
 var less         = require('gulp-less');
-var notify       = require('gulp-notify');
 var autoprefixer = require('gulp-autoprefixer');
 var minifycss    = require('gulp-minify-css');
-var rename 		 = require('gulp-rename');
+var rename       = require('gulp-rename');
+var uglify       = require('gulp-uglify');
+var browserSync  = require('browser-sync');
 var handleErrors = require('../util/handleErrors');
-var paths 		 = require('../../package.json').paths;
+var paths        = require('../../package.json').paths;
+
+gulp.task('adminScripts', function() {
+	return gulp.src([paths.theme + '/admin/admin.js'], { base: paths.theme + '/admin' })
+		.on('error', handleErrors)
+		.pipe(gulp.dest(paths.dist + '/admin'))
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(uglify())
+		.pipe(gulp.dest(paths.dist + '/admin'))
+		.pipe(browserSync.reload({ stream: true }));
+});
 
 gulp.task('adminStyles', function() {
 	return gulp.src([paths.theme + '/admin/admin.less'], { base: paths.theme + '/admin' })
@@ -17,7 +28,7 @@ gulp.task('adminStyles', function() {
 		.pipe(minifycss())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest(paths.dist + '/admin'))
-		.pipe(notify({ message: 'Admin styles task complete' }));
+		.pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task('editorStyles', function() {
@@ -30,5 +41,7 @@ gulp.task('editorStyles', function() {
 		.pipe(minifycss())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest(paths.dist + '/admin'))
-		.pipe(notify({ message: 'Editor styles task complete' }));
+		.pipe(browserSync.reload({ stream: true }));
 });
+
+gulp.task('admin', ['adminScripts', 'adminStyles', 'editorStyles']);
