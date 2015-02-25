@@ -9,10 +9,10 @@ var paths 		 = require('../../package.json').paths;
 
 gulp.task('styles', function() {
 	return gulp.src([paths.styles + '/app.less'], { base: paths.styles })
-		.pipe(less())
-		.on('error', function(err) {
+		.pipe(less().on('error', function(err) {
 			gutil.log("LESS error:", err);
-		})
+			this.emit('end');
+		}))
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest(paths.dist + '/styles'))
 		.pipe(minifycss())
