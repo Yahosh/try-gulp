@@ -1,7 +1,7 @@
 var gulp    = require('gulp');
 var jshint  = require('gulp-jshint');
 var stylish = require('jshint-stylish');
-var paths   = require('../../package.json').paths;
+var paths   = require('../config').paths;
 
 gulp.task('jshint', function () {
   return gulp.src(paths.scripts + '/*.js')
