@@ -17,7 +17,7 @@ gulp.task('styles', function() {
 		.pipe(less())
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'Opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest(dest))
-		.pipe(minifycss())
+		.pipe(minifycss({ processImport: false }))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest(dest))
 		.pipe(browserSync.reload({ stream: true }));
