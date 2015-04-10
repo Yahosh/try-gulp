@@ -5,7 +5,10 @@ var paths   = require('../config').paths;
 
 gulp.task('watch', ['watchify'], function() {
 	// Watch theme .less files
-	gulp.watch(paths.styles + '/**/*.less', ['styles']);
+	gulp.watch([
+		paths.styles + '/**/*.less',
+		'!' + paths.styles + '/admin/**'
+	], ['styles']);
 
 	// Watch editor.less
 	gulp.watch(paths.styles + '/admin/editor.less', ['editorStyles']);
