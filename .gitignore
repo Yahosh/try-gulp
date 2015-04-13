@@ -1,5 +1,8 @@
 .DS_Store
 *~
+*.sql
+*.log
+
 node_modules
 Movefile
 .ftppass
@@ -13,7 +16,6 @@ app/wp-content/backup-db/
 app/wp-content/advanced-cache.php
 app/wp-content/wp-cache-config.php
 app/sitemap.xml
-*.log
 app/wp-content/cache/
 app/wp-content/backups/
 app/sitemap.xml.gz
