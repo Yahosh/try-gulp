@@ -2,6 +2,7 @@
 *~
 node_modules
 Movefile
+.ftppass
 
 local-config.php
 wp-config.php
