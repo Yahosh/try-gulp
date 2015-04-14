@@ -1,7 +1,7 @@
 {
-  "name": "try-bees-matter",
+  "name": "weber-site",
   "version": "0.1.0",
-  "description": "Bees Matter",
+  "description": "A web project from Weber Shandwick",
   "browserify": {
     "transform": [ "browserify-shim" ]
   },
